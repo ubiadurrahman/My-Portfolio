@@ -9,22 +9,24 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-900 text-white shadow-lg sticky">
+    <nav className="bg-gray-900 text-white shadow-lg sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="#" className="text-2xl font-bold text-purple-400">
+            <Link to="/" className="text-2xl font-bold text-purple-400">
               Ubaid's Portfolio
             </Link>
           </div>
 
           {/* Links (Hidden on Small Screens) */}
-          <div className="hidden md:flex space-x-10">
-            <NavLink to="/" //className="hover:text-purple-400 transition">
+          <div className="hidden md:flex space-x-6">
+            <NavLink
+              to="/"
               className={({ isActive }) =>
-                `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-400" : "text-white"
-                } border-b border-gray-600 hover: text-purple-400 transition hover:bg-transparent lg:border-0 lg:p-0`
+                `duration-200 hover:text-purple-400 ${
+                  isActive ? "text-purple-400" : "text-white"
+                }`
               }
             >
               Home
@@ -32,22 +34,29 @@ const Navbar = () => {
             <NavLink
               to="/projects"
               className={({ isActive }) =>
-                `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-400" : "text-white"
-                } border-b border-gray-600 hover: text-purple-400 transition hover:bg-transparent lg:border-0 lg:p-0`
+                `duration-200 hover:text-purple-400 ${
+                  isActive ? "text-purple-400" : "text-white"
+                }`
               }
             >
               Projects
             </NavLink>
-            <NavLink to="/about"  className={({ isActive }) =>
-                `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-400" : "text-white"
-                } border-b border-gray-600 hover: text-purple-400 transition hover:bg-transparent lg:border-0 lg:p-0`
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `duration-200 hover:text-purple-400 ${
+                  isActive ? "text-purple-400" : "text-white"
+                }`
               }
             >
               About
             </NavLink>
-            <NavLink to="/contact" className={({ isActive }) =>
-                `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-purple-400" : "text-white"
-                } border-b border-gray-600 hover: text-purple-400 transition hover:bg-transparent lg:border-0 lg:p-0`
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `duration-200 hover:text-purple-400 ${
+                  isActive ? "text-purple-400" : "text-white"
+                }`
               }
             >
               Contact
@@ -99,28 +108,59 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-gray-800">
-          <div className="space-y-1 px-2 pt-2 pb-3">
-            <NavLink to="/" className= "hover:text-purple-400 transition">
+          <div className="space-y-1 px-4 py-3">
+            <NavLink
+              to="/"
+              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? "bg-gray-700 text-purple-400"
+                    : "hover:bg-gray-700 hover:text-purple-400"
+                }`
+              }
+            >
               Home
             </NavLink>
-            <Link
+            <NavLink
               to="/projects"
-              className="block px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? "bg-gray-700 text-purple-400"
+                    : "hover:bg-gray-700 hover:text-purple-400"
+                }`
+              }
             >
               Projects
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/about"
-              className="block px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? "bg-gray-700 text-purple-400"
+                    : "hover:bg-gray-700 hover:text-purple-400"
+                }`
+              }
             >
               About
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/contact"
-              className="block px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? "bg-gray-700 text-purple-400"
+                    : "hover:bg-gray-700 hover:text-purple-400"
+                }`
+              }
             >
               Contact
-            </Link>
+            </NavLink>
           </div>
         </div>
       )}
