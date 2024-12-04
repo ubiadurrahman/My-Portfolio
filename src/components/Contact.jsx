@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setIsSubmitting(true); // Disable the button and show loader
 
     emailjs
       .sendForm(
@@ -16,14 +18,16 @@ export default function Contact() {
       )
       .then(
         () => {
-          console.log("SUCCESS!");
           alert("Message sent successfully!");
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          console.error("Failed to send message:", error.text);
           alert("Failed to send message. Please try again.");
         }
-      );
+      )
+      .finally(() => {
+        setIsSubmitting(false); // Re-enable the button
+      });
   };
 
   return (
@@ -120,9 +124,14 @@ export default function Contact() {
             ></textarea>
             <button
               type="submit"
-              className="py-3 px-6 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-400 transition-all"
+              className={`py-3 px-6 font-bold rounded-lg transition-all ${
+                isSubmitting
+                  ? "bg-gray-500 cursor-not-allowed"
+                  : "bg-purple-600 hover:bg-purple-400 text-white"
+              }`}
+              disabled={isSubmitting}
             >
-              Submit
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </form>
         </div>

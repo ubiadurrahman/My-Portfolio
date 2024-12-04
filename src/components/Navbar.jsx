@@ -67,7 +67,9 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-gray-300 hover:text-white focus:outline-none"
+              className={`text-gray-300 hover:text-white focus:outline-none transform transition-transform ${
+                isOpen ? "rotate-90" : "rotate-0"
+              }`}
             >
               {isOpen ? (
                 <svg
@@ -105,9 +107,22 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-gray-800">
+      {/* Mobile Menu with Blur Background */}
+      <div
+        className={`fixed inset-0 z-10 md:hidden transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out`}
+      >
+        {/* Blur Background */}
+        {isOpen && (
+          <div
+            className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md"
+            onClick={() => setIsOpen(false)}
+          ></div>
+        )}
+
+        {/* Mobile Menu */}
+        <div className="absolute top-0 left-0 h-screen w-3/4 bg-gray-800 shadow-lg">
           <div className="space-y-1 px-4 py-3">
             <NavLink
               to="/"
@@ -163,7 +178,7 @@ const Navbar = () => {
             </NavLink>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
