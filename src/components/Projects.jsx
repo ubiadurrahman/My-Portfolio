@@ -3,27 +3,27 @@ import React from "react";
 const Projects = () => {
   const projects = [
     {
-      src: "img_1.png",
+      src: "img_1.jpg",
       alt: "Daraz Clone",
       github: "https://github.com/ubiadurrahman/Draz---Clone.git",
     },
     {
-      src: "img_2.png",
+      src: "img_2.jpg",
       alt: "Microsoft Clone",
       github: "https://github.com/ubiadurrahman/Microsoft-Clone.git",
     },
     {
-      src: "img_3.png",
+      src: "img_3.jpg",
       alt: "Tic Tac Toe",
       github: "https://github.com/ubiadurrahman/Tic-Tac-Toe-Game.git",
     },
     {
-      src: "img_4.png",
+      src: "img_4.jpg",
       alt: "Currency Converter",
       github: "https://github.com/ubiadurrahman/Currency-Converter.git",
     },
     {
-      src: "img_5.png",
+      src: "img_5.jpg",
       alt: "Todo List",
       github: "https://github.com/ubiadurrahman/Todo_List.git",
     },

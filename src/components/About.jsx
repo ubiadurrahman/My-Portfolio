@@ -8,9 +8,9 @@ const About = () => {
         {/* About Section */}
         <div className="text-center md:text-left flex flex-col items-center md:items-start w-full md:w-2/3">
           {/* Profile Picture */}
-          <div className="rounded-3xl overflow-hidden w-72 h-40 sm:w-80 sm:h-48 shadow-lg border-4 border-purple-600 mb-6">
-            <img
-              src="/profile.jpg"
+          <div className="rounded-full overflow-hidden w-36 h-36 sm:w-48 sm:h-48 md:w-64 md:h-64 shadow-lg border-4 border-purple-600 mb-6">
+        <img
+          src="/profile.jpg"
               alt="Ubaid ur Rahman"
               className="w-full h-full object-cover"
             />
